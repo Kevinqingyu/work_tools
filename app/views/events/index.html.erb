@@ -1,0 +1,31 @@
+<%= link_to '导出翻译结果', export_events_path %>
+<%= link_to '导入待翻译表格', import_events_events_path %>
+<%= link_to '开始翻译', trans_to_zh_events_path %>
+
+</br>当前数据：
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th>category</th>
+      <th>function_area</th>
+      <th>function_level</th>
+      <th>steps</th>
+      <th>expected_result</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each_with_index do |event, index| %>
+      <tr>
+        <td><%= index_no(index, @events.limit_value) %></td>
+        <td><%= event.category %></td>
+        <td><%= event.function_area %></td>
+        <td><%= event.function_level %></td>
+        <td><%= event.steps %></td>
+        <td><%= event.expected_result %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @events %>

@@ -1,0 +1,22 @@
+<div class="ibox">
+  <div class="row">
+    <div class="ibox">
+      标准格式商品的批量上传
+      <div class="ibox-content">
+        <%= form_tag import_events_path, multipart: true, class: 'table-form' do %>
+          <table class="table table-form">
+            <tbody>
+            <tr>
+              <th class="tr">上传文件：</th>
+              <td><%= file_field_tag 'excel_data', class: "face" %></td>
+              <th class="tr">页数：</th>
+              <td><%= number_field_tag 'number' %></td>
+            </tr>
+            </tbody>
+          </table>
+          <%= submit_tag '上传', data: {:disable_with => "提交中..."} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
