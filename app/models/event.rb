@@ -1,5 +1,4 @@
 class Event < ActiveRecord::Base
-# 批量导入品目 格式[一级品目, 二级品目, 三级品目, 品目编码]
   def self.event_import_xls(filepath, num)
     Spreadsheet.client_encoding = 'UTF-8'
     book = Spreadsheet.open(filepath)
